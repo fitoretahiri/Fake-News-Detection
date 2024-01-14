@@ -1,10 +1,6 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
 from news.models import News
-
-# Create your views here.
-# def get_news(request):
-#     return render(request, 'news.html')
+from news.predictions_service import make_prediction, load_model, load_vector
 
 def index(request):
     news = News.objects.all()
@@ -13,7 +9,16 @@ def index(request):
     })
 
 def news_detail(request, pk):
+    model = load_model()
+    vector = load_vector()
     news = get_object_or_404(News, pk=pk)
+
+    prediction = make_prediction(model, vector, news.content)
+    if prediction[0] == 1:
+        news.prediction = 'True'
+    else:
+        news.prediction = 'False'
+    
     return render(request, 'news.html', {
         'news': news,
     })
