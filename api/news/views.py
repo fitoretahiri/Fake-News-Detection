@@ -15,9 +15,9 @@ def news_detail(request, pk):
 
     prediction = make_prediction(model, vector, news.content)
     if prediction[0] == 1:
-        news.prediction = 'True'
+        news.prediction = 'reliable'
     else:
-        news.prediction = 'False'
+        news.prediction = 'not reliable'
     
     return render(request, 'news.html', {
         'news': news,
