@@ -13,7 +13,6 @@ def remove_stopwords(text):
     stop = stopwords.words('english')
     return ' '.join([word for word in text.split() if word not in stop])
 
-
 def load_model():
     load_dotenv()
     path = os.path.abspath(os.getenv('PATH_TO_MODEL'))
@@ -32,8 +31,8 @@ def make_prediction(model, vector, input_data):
     prediction = model.predict(test)
     return prediction
 
-def get_prediction(model, vector, input_data):
-    prediction = make_prediction(model, vector, input_data)
+def get_prediction(input_data):
+    prediction = make_prediction(load_model(), load_vector(), input_data)
     if prediction[0] == 1:
         return 'reliable'
     else:
