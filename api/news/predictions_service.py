@@ -31,3 +31,10 @@ def make_prediction(model, vector, input_data):
     test = vector.transform([input_data])
     prediction = model.predict(test)
     return prediction
+
+def get_prediction(model, vector, input_data):
+    prediction = make_prediction(model, vector, input_data)
+    if prediction[0] == 1:
+        return 'reliable'
+    else:
+        return 'not reliable'

@@ -7,35 +7,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>{% block title %}{% endblock %} | News</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200">
         <a href="/news" class="text-2xl font-bold text-blue-500 px-2 py-1">FactChecker</a>
 
         <div class="space-x-6">
-            <a href="#" class="text-lg font-semibold hover:text-green-500">Add news</a>
+            <a href="/news/predict/" class="text-lg font-semibold hover:text-blue-900">Check your content</a>
+            <a href="#" class="text-lg font-semibold hover:text-blue-900">Add news</a>
 
         </div>
     </nav>
 
-    <div class="px-6 py-6">
-        {% block content %}
-        {% endblock %}
-    </div>
+    <main class="flex-grow">
+        <div class="px-6 py-6">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
 
-    <footer class="py-6 px-6 flex justify-between bg-gray-800">
+    <footer class="py-6 px-6 flex justify-between bg-gray-800 mt-auto">
         <div class="w-2/3 pr-10">
-            <h3 class="mb-5 font-semibold text-gray-400">About</h3>
-
-            <p class="text-lg text-gray-400">All rights reserved</p>
+            <p class="text-lg text-white">All rights reserved</p>
         </div>
 
         <div class="w-1/3">
-            <h3 class="mb-5 font-semibold text-gray-400">Menu</h3>
+            <h3 class="mb-5 font-semibold text-white">Menu</h3>
 
             <ul class="space-y-2">
-                <li><a href="#" class="text-lg text-teal-500 hover:text-green-500">News</a></li>
-                <li><a href="#" class="text-lg text-teal-500 hover:text-green-500">Add News</a></li>
-                <li><a href="#" class="text-lg text-teal-500 hover:text-green-500">Browse</a></li>
+                <li><a href="/news/" class="text-lg text-teal-500 hover:text-white">News</a></li>
+                <li><a href="/news/predict/" class="text-lg text-teal-500 hover:text-white">Check your content</a></li>
             </ul>
         </div>
     </footer>
