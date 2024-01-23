@@ -1,6 +1,6 @@
 # Fake-News-Detection
 
-FactChecker is a web based application. Its purpose is to check wether the provided news are reliable or not reliable.
+FactChecker is a web based application. Its purpose is to check whether the provided news are reliable or not reliable.
 
 ## Machine Learning Model Details
 
@@ -22,7 +22,7 @@ FactChecker was programmed using:
 
 ## Details
 
-FactChecker is a news blog. It contains news articles but the difference is that for every added content, the model will immediately predict wether the content is reliable or not. A message: `Content is reliable`, will be generated in green color or `Content is not reliable`, will be generated in red color. The website contains a button to check for your content as well. There you can simply paste your own content to check wether it is fake or reliable. The system generates the message mentioned above.
+FactChecker is a news blog. It contains news articles but the difference is that for every added content, the model will immediately predict whether the content is reliable or not. A message: `Content is reliable`, will be generated in green color or `Content is not reliable`, will be generated in red color. The website contains a button to check for your content as well. There you can simply paste your own content to check whether it is fake or reliable. The system generates the message mentioned above.
 
 ## Installation
 
