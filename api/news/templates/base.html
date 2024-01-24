@@ -19,6 +19,7 @@
                     {% csrf_token %}
                     <button type="submit" class="text-lg font-bold text-blue-600 hover:text-blue-900">Logout</button>
                 </form>
+                <a href="/news/addNews/" class="text-lg font-bold text-blue-600 hover:text-blue-900">New Article</a>
             {% else %}
                 <a href="/news/signup/" class="text-lg font-bold text-blue-600 hover:text-blue-900">Sing Up</a>
                 <a href="/news/login/" class="text-lg font-bold text-blue-600 hover:text-blue-900">Login</a>

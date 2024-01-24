@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404, render
 from news.models import News
 from news.predictions_service import get_prediction
-from .forms import SignupForm
+from news.forms import SignupForm, AddNewsForm
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     news = News.objects.all()
@@ -12,8 +13,6 @@ def index(request):
 
 def news_detail(request, pk):
     news = get_object_or_404(News, pk=pk)
-
-    news.prediction = get_prediction(news.content)
     
     return render(request, 'news.html', {
         'news': news,
@@ -36,5 +35,23 @@ def signup(request):
     else:
         form = SignupForm()
     return render(request, 'signup.html', {
+        'form': form,
+    })
+
+@login_required
+def addNews(request):
+    if request.method == 'POST':
+        form = AddNewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.publishedBy = request.user
+            item.prediction = get_prediction(item.content)
+            item.save()
+
+            return redirect('/news/')
+    else:
+        form = AddNewsForm()
+
+    return render(request, 'add_news.html', {
         'form': form,
     })
