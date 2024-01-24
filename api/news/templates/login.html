@@ -30,7 +30,11 @@ Log in
                 {{ form.non_field_errors }}
             </div>
         {% endif %}
-        <button class="py-4 px-8 text-lg bg-blue-500 hover:bg-blue-700 rounded-xl text-white">Sign up</button>
+        
+        <div class="text-center mb-4 mt-8">
+            <a href="{% url 'news:signup' %}" class="underline block mb-2 hover:text-blue-600">Already have an account? Sign up...</a>
+            <button class="w-full py-4 px-6 rounded text-lg bg-blue-500 hover:bg-blue-700 text-white">Log in</button>
+        </div>               
     </form>
 </div>
 {% endblock %}
