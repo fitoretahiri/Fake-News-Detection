@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from news.models import News
 from news.predictions_service import get_prediction
+from .forms import SignupForm
+from django.shortcuts import redirect
 
 def index(request):
     news = News.objects.all()
@@ -22,4 +24,17 @@ def predict(request):
     prediction = get_prediction(news_detail)
     return render(request, 'predictions.html', {
         'prediction': prediction,
+    })
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('/login/')
+    else:
+        form = SignupForm()
+    return render(request, 'signup.html', {
+        'form': form,
     })
