@@ -6,9 +6,15 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    news = News.objects.all()
+    query = request.GET.get('query','')
+    news = News.objects.all().order_by('published')
+
+    if query:
+        news = news.filter(prediction__exact=query)
+
     return render(request, 'index.html', {
         'news': news,
+        'query': query,
     })
 
 def news_detail(request, pk):

@@ -1,0 +1,6 @@
+.filter-link {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s, color 0.3s;
+}
