@@ -1,6 +1,7 @@
 # Fake-News-Detection
 
 FactChecker is a web based application. Its purpose is to check whether the provided news are reliable or not reliable.
+Video demo: https://youtu.be/2XUsT80_6iA 
 
 ## Machine Learning Model Details
 
